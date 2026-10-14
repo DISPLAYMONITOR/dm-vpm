@@ -1,0 +1,16 @@
+{
+  "listing": {
+    "name": "DIS_MONI VPM (public test)",
+    "id": "com.dismoni.vpm",
+    "author": "DIS_MONI",
+    "url": "https://displaymonitor.github.io/dm-vpm/index.json"
+  },
+  "base_url": "https://displaymonitor.github.io/dm-vpm/",
+  "allowed_package_ids": [
+    "com.dismoni.vpm.publictest"
+  ],
+  "static_files": [
+    "index.html",
+    "robots.txt"
+  ]
+}

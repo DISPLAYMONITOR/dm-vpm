@@ -1,0 +1,40 @@
+{
+  "name": "DIS_MONI VPM (public test)",
+  "id": "com.dismoni.vpm",
+  "author": "DIS_MONI",
+  "url": "https://displaymonitor.github.io/dm-vpm/index.json",
+  "packages": {
+    "com.dismoni.vpm.publictest": {
+      "versions": {
+        "0.0.1": {
+          "name": "com.dismoni.vpm.publictest",
+          "displayName": "DM VPM Public Test (dummy)",
+          "version": "0.0.1",
+          "unity": "2022.3",
+          "description": "Dummy package for testing the DIS_MONI public VPM listing. Contains no code and no assets.",
+          "author": {
+            "name": "DIS_MONI"
+          },
+          "license": "CC0-1.0",
+          "vpmDependencies": {},
+          "url": "https://displaymonitor.github.io/dm-vpm/packages/com.dismoni.vpm.publictest/com.dismoni.vpm.publictest-0.0.1.zip",
+          "zipSHA256": "be22b309435da577fed14fd64998cdbd17fcb3618964577bdc36e46ef87ad3e8"
+        },
+        "0.0.2": {
+          "name": "com.dismoni.vpm.publictest",
+          "displayName": "DM VPM Public Test (dummy)",
+          "version": "0.0.2",
+          "unity": "2022.3",
+          "description": "Dummy package for testing the DIS_MONI public VPM listing. Contains no code and no assets.",
+          "author": {
+            "name": "DIS_MONI"
+          },
+          "license": "CC0-1.0",
+          "vpmDependencies": {},
+          "url": "https://displaymonitor.github.io/dm-vpm/packages/com.dismoni.vpm.publictest/com.dismoni.vpm.publictest-0.0.2.zip",
+          "zipSHA256": "742094a80a2b499ec0b82291013282f9e90e02856a4caa419903bb703cc59323"
+        }
+      }
+    }
+  }
+}

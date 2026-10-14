@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DIS_MONI VPM (public test)</title>
+<style>
+  :root { color-scheme: light dark; --fg: #1d1d1f; --bg: #ffffff; --muted: #5f6368; --box: #f2f3f5; --accent: #0b57d0; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e8eaed; --bg: #17181a; --muted: #a0a4a8; --box: #24262a; --accent: #8ab4f8; } }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px; }
+  code, .url { font-family: ui-monospace, Consolas, monospace; font-size: 14px; }
+  .url { display: block; background: var(--box); padding: 10px 12px; border-radius: 6px; overflow-wrap: anywhere; }
+  a.button { display: inline-block; margin: 12px 0; padding: 8px 16px; border-radius: 6px; background: var(--accent); color: var(--bg); text-decoration: none; }
+  .note { color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+<h1>DIS_MONI VPM (public test)</h1>
+<p><strong>これは配布の仕組みを試すための公開試験です。</strong>載っているのは中身の無いダミーのパッケージ（<code>com.dismoni.vpm.publictest</code>）だけで、製品は含まれていません。</p>
+<p>This listing is a public test of the distribution setup. It only contains an empty dummy package and no products.</p>
+
+<h2>VPM の一覧の URL / Listing URL</h2>
+<span class="url">https://displaymonitor.github.io/dm-vpm/index.json</span>
+<a class="button" href="vcc://vpm/addRepo?url=https%3A%2F%2Fdisplaymonitor.github.io%2Fdm-vpm%2Findex.json">Add to VCC / ALCOM</a>
+<p class="note">ボタンが動かないときは、VCC または ALCOM の設定でパッケージの一覧（リポジトリ）を追加し、上の URL を貼り付けてください。<br>
+If the button does nothing, add the URL above as a package listing (repository) in the settings of VCC or ALCOM.</p>
+
+<h2>注意 / Notes</h2>
+<ul>
+<li>更新の前に、プロジェクトのバックアップを取ってください。VCC 2.4.5 では、パッケージの取得に失敗すると、入っていた版が消えることがあります。ALCOM を推奨します。</li>
+<li>Back up your project before updating. In VCC 2.4.5 a failed download can remove the installed version; ALCOM is recommended.</li>
+<li>公開済みの版の ZIP は差し替えません。修正は新しい版で出します。 / A published version is never replaced; fixes come as new versions.</li>
+</ul>
+</main>
+</body>
+</html>
