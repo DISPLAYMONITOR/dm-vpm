@@ -14,7 +14,9 @@ cfg = json.load(open(os.path.join(ROOT, 'publish.json'), encoding='utf-8'))
 ledger = json.load(open(os.path.join(ROOT, 'ledger.json'), encoding='utf-8'))
 base = cfg['base_url']
 problems = []
-TYPES = {'.json': 'application/json', '.zip': 'application/zip', '.html': 'text/html', '.txt': 'text/plain'}
+# Accepted media types per extension (exact match on the part before ';'). Anything else is a mismatch.
+# GitHub Pages serves .zip as application/x-zip-compressed (observed 2026-10-14); application/zip is the registered type.
+TYPES = {'.json': ('application/json',), '.zip': ('application/zip', 'application/x-zip-compressed'), '.html': ('text/html',), '.txt': ('text/plain',)}
 
 
 def get(path):
@@ -28,8 +30,8 @@ expected = ['index.json'] + cfg['static_files'] + ['packages/%s/%s-%s.zip' % (k.
 for rel in expected:
     status, ctype, body = get(rel)
     local = open(os.path.join(SITE, rel), 'rb').read()
-    want = TYPES[os.path.splitext(rel)[1]]
-    ok = status == 200 and ctype.split(';')[0].strip() == want and body == local
+    want = TYPES.get(os.path.splitext(rel)[1], ())          # unknown extension: nothing is accepted
+    ok = status == 200 and ctype.split(';')[0].strip() in want and body == local
     print('%-3s %-62s %s  %-28s %s' % (status, rel, 'same' if body == local else 'DIFFERENT', ctype, hashlib.sha256(body).hexdigest()))
     if not ok: problems.append('%s: status %s, type %s, bytes %s' % (rel, status, ctype, 'same' if body == local else 'different'))
 
