@@ -42,7 +42,11 @@ ZIPs already downloaded, cached by VCC / ALCOM or installed in projects cannot b
 
 ## Recover
 
-- Wrong listing content: `git revert` the commit and push; the workflow republishes the previous state.
+- Wrong listing content: do **not** `git revert` a commit that added ledger entries (the append-only history check
+  refuses a removed entry). Stop the version as in "Stop publication" 1 (`"listed": false`, keep the entry and its
+  SHA-256, delete its ZIP from `site/`, `python tools/check_site.py --write-index --history`), commit and push.
+  A commit that only changed static files (`index.html`, README) may be reverted.
+- To withdraw `com.dismoni.yamaplayer.localplaylist@1.0.1-rc.11`: that same procedure. Fixes come as a new version.
 - After *Unpublish*: Settings → Pages → Source *GitHub Actions*, enable the workflow, run it
   (`gh workflow run pages.yml -R DISPLAYMONITOR/dm-vpm`), then `python tools/verify_live.py`.
 - Do not change the listing URL: users would have to register it again.
