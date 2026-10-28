@@ -6,5 +6,9 @@
   "com.dismoni.vpm.publictest@0.0.2": {
     "sha256": "742094a80a2b499ec0b82291013282f9e90e02856a4caa419903bb703cc59323",
     "listed": true
+  },
+  "com.dismoni.yamaplayer.localplaylist@1.0.1-rc.11": {
+    "sha256": "0913e377b06ce1ca22337c9a74375c711e3c279cd12ff4841faab718b4af6d44",
+    "listed": true
   }
 }

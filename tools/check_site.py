@@ -29,9 +29,12 @@ def load(rel):
 FORBIDDEN = [re.compile(p, re.I) for p in (
     'gh' + 'p_', 'gh' + 'o_', 'gh' + 's_', 'gh' + 'u_', 'github' + '_pat_', 'auth' + 'orization', 'bear' + 'er ',
     'private' + ' key', 'pass' + 'word', r'secrets\.', r'x-access-' + 'token', r'AKIA[0-9A-Z]{16}', r'xox[bp]-',
-    'wrld' + '_', 'usr' + '_', 'yama' + 'player', 'web' + 'unit', 'local' + ' ?playlist', 'my' + 'list',
+    'wrld' + '_', 'usr' + '_',
     'dm-vpm' + '-private', 'vpm' + '.private', 'kit' + 'ai', 'mim' + 'ura', '@gm' + 'ail', r'c:\\' + 'users', 'drop' + 'box',
     'public' + ' room')]
+# Bytes of the DM Modified WebUnit Clients (v5.4 / v5.2). They must never be published (redistribution permission PENDING).
+FORBIDDEN_SHA256 = {'d13b2ce1976d63c035937151cb0ecec71fc3ed9fab9ce820b81abf8828fd910a',
+                    '8dd8b6ded358e88095409e0a0e45eb5538301da18c1ea9b698b5c9a1660785df'}
 SCAN_SKIP = {'tools/check_site.py'}           # holds the patterns themselves (split, so it does not match anyway)
 
 
@@ -41,7 +44,7 @@ def scan(name, text):
         if m: problems.append('forbidden text %r in %s' % (m.group(0), name))
 
 
-def zip_problems(rel, data, pkg, version):
+def zip_problems(rel, data, pkg, version, types=('.json', '.meta', '.md')):
     out = []
     try: z = zipfile.ZipFile(io.BytesIO(data))
     except zipfile.BadZipFile: return ['%s is not a ZIP' % rel]
@@ -50,7 +53,9 @@ def zip_problems(rel, data, pkg, version):
         n = info.filename
         if n.startswith('/') or '\\' in n or '..' in n.split('/') or ':' in n: out.append('%s: bad entry path %r' % (rel, n))
         if (info.external_attr >> 16) & 0o170000 == 0o120000: out.append('%s: link entry %r' % (rel, n))
-        if not n.endswith('/') and os.path.splitext(n)[1] not in ('.json', '.meta', '.md'): out.append('%s: entry type not allowed %r' % (rel, n))
+        if not n.endswith('/') and os.path.splitext(n)[1] not in types: out.append('%s: entry type not allowed %r' % (rel, n))
+        if n.startswith('WebUnit/Client.dm'): out.append('%s: modified WebUnit Client entry %r' % (rel, n))
+        if not n.endswith('/') and hashlib.sha256(z.read(n)).hexdigest() in FORBIDDEN_SHA256: out.append('%s: entry %r has the bytes of a modified WebUnit Client' % (rel, n))
         if not n.endswith('/'):
             scan('%s!%s' % (rel, n), z.read(n).decode('utf-8', 'replace'))
     if 'package.json' not in names: return out + ['%s: no package.json' % rel]
@@ -109,7 +114,7 @@ for key, entry in ledger.items():
     data = open(path, 'rb').read()
     if len(data) > 1 << 20: problems.append('%s is larger than 1 MiB' % rel)
     if hashlib.sha256(data).hexdigest() != entry['sha256']: problems.append('%s: SHA-256 differs from the ledger' % rel)
-    problems.extend(zip_problems(rel, data, pkg, version))
+    problems.extend(zip_problems(rel, data, pkg, version, tuple(cfg.get('entry_types', {}).get(pkg, ('.json', '.meta', '.md')))))
 
 # 1: exact file set of site/
 present = set()

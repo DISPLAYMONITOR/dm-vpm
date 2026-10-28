@@ -1,9 +1,13 @@
-# dm-vpm — DIS_MONI VPM listing (public test)
+# dm-vpm — DIS_MONI VPM Repository
 
 Listing URL: `https://displaymonitor.github.io/dm-vpm/index.json` (listing id `com.dismoni.vpm`)
 
-**Public test of the distribution setup.** It only contains the empty dummy package `com.dismoni.vpm.publictest`
-(0.0.1, 0.0.2). No product is published here.
+Packages: `com.dismoni.yamaplayer.localplaylist` (DM YamaPlayer Local Playlist; terms in the package's LICENSE.md,
+Japanese authoritative, and LICENSE.en.md). The dummy package `com.dismoni.vpm.publictest` (0.0.1, 0.0.2) of the
+public test stays listed (ZIPs, listing, ledger entries and history kept).
+
+Product ZIPs may contain `.cs .asmdef .asset .prefab .unity .png` besides `.json .meta .md` (`entry_types` in
+`publish.json`). The gate refuses any `WebUnit/Client.dm*` entry and the bytes of the DM Modified WebUnit Clients.
 
 ## Layout
 

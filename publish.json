@@ -1,16 +1,30 @@
 {
   "listing": {
-    "name": "DIS_MONI VPM (public test)",
+    "name": "DIS_MONI VPM Repository",
     "id": "com.dismoni.vpm",
     "author": "DIS_MONI",
     "url": "https://displaymonitor.github.io/dm-vpm/index.json"
   },
   "base_url": "https://displaymonitor.github.io/dm-vpm/",
   "allowed_package_ids": [
-    "com.dismoni.vpm.publictest"
+    "com.dismoni.vpm.publictest",
+    "com.dismoni.yamaplayer.localplaylist"
   ],
   "static_files": [
     "index.html",
     "robots.txt"
-  ]
+  ],
+  "entry_types": {
+    "com.dismoni.yamaplayer.localplaylist": [
+      ".json",
+      ".meta",
+      ".md",
+      ".cs",
+      ".asmdef",
+      ".asset",
+      ".prefab",
+      ".unity",
+      ".png"
+    ]
+  }
 }
