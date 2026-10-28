@@ -89,6 +89,58 @@
           },
           "url": "https://displaymonitor.github.io/dm-vpm/packages/com.dismoni.yamaplayer.localplaylist/com.dismoni.yamaplayer.localplaylist-1.0.1-rc.11.zip",
           "zipSHA256": "0913e377b06ce1ca22337c9a74375c711e3c279cd12ff4841faab718b4af6d44"
+        },
+        "1.1.0-beta.1": {
+          "name": "com.dismoni.yamaplayer.localplaylist",
+          "displayName": "DM YamaPlayer Local Playlist",
+          "version": "1.1.0-beta.1",
+          "unity": "2022.3",
+          "description": "Add-on for YamaPlayer 1.5.18: per-user local playlists saved with VRChat persistence. YamaPlayer itself is not modified and is not included. PC (Windows): tested. Quest / Android: C# / UdonSharp compile for Android checked; Android SDK build and operation on Quest devices not verified. On Android, bulk import, automatic titles and WebUnit playback are disabled. Works with the official YamachanWebUnit 1.1.0; the DM Modified WebUnit is not included. Free. See LICENSE.md (Japanese, authoritative) and LICENSE.en.md.",
+          "author": {
+            "name": "DISPLAY_MONITOR"
+          },
+          "license": "SEE LICENSE IN LICENSE.md",
+          "vpmDependencies": {
+            "com.vrchat.worlds": ">=3.10.5",
+            "net.kwxxw.yama-stream": "1.5.18",
+            "net.kwxxw.yamachan-web-unit": "1.1.0"
+          },
+          "legacyFiles": {
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListStore.cs": "7932b04dd2642364b92a2d2ce9a77b84",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListStore.asset": "654bf386c8f481e40b0560391a4705c0",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListPersistentView.cs": "bfc82de56817b004fbe5a4f5a6ac5e91",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListPersistentView.asset": "d8dace6cf1e02274daeb621b978c455b",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListNativePlaylistAdapter.cs": "2320e4a7e93c9914e95959aad2518d8b",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListNativePlaylistAdapter.asset": "3ebdb764f8a6f86499800c4061884383",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListNativePlaylistRow.cs": "a90eaf813cf1ea640b621fff619131a3",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListNativePlaylistRow.asset": "92b6ebe4a6e979d41969ef9e442a43c2",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListNativeTrackRow.cs": "f0d29a910404c524eb012613d23bc51b",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListNativeTrackRow.asset": "c57a8f3992e2feb42a08b7de6d9da8e2",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListUiSentinel.cs": "cf0f9bb9032ad4e40b3935cb9c0ea31c",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListUiSentinel.asset": "e59cc135117772e488c42a6d5d8265a8",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListWebUnitPlayback.cs": "d4e82258703426d4c94ae638bf582552",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListWebUnitPlayback.asset": "c8193bf1dd8a9404b8d296031ab46a25",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListPlaylistImport.cs": "705d17ccd6fce1248814e88495d2fb7e",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListPlaylistImport.asset": "851d6d23c6a894341a90583d27362385",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListCodec.cs": "88beb5402ec996c4186d21f48a0f5bd0",
+            "Assets\\DMYamaPlayerPersistentMyList\\Runtime\\MyListLocalization.cs": "2a88d90763cf4874b7c61abf068e70c1",
+            "Assets\\DMYamaPlayerPersistentMyList\\Editor\\MyListProductSetup.cs": "36e9a7fd94e828a4cbb566a84c973b82",
+            "Assets\\DMYamaPlayerPersistentMyList\\Editor\\MyListPersistentViewEditor.cs": "b89d0a768bde98a45a68a2f64cee1796",
+            "Assets\\DMYamaPlayerPersistentMyList\\Editor\\MyListAutoSetup.cs": "8107972eb0d798745b517b68375c86ce",
+            "Assets\\DMYamaPlayerPersistentMyList\\Editor\\MyListModifiedWebUnitBuild.cs": "33961c30e6ede2346b62d8b6ff71fd02",
+            "Assets\\DMYamaPlayerPersistentMyList\\Editor\\MyListModifiedWebUnitRevisions.cs": "547304a0f463eda40bfcfe74af4ebc97",
+            "Assets\\DMYamaPlayerPersistentMyList\\Editor\\MyListWebUnitInstaller.cs": "e38f2bb6851f99c43a9c327743536f22",
+            "Assets\\DMYamaPlayerPersistentMyList\\WebUnit\\Client.dm-v5.2.cs.txt": "c53536711f1ee1e4d93c769609e2c345",
+            "Assets\\DMYamaPlayerPersistentMyList\\Prefabs\\PersistentMyList.prefab": "bbb2fe26704b2d34faa72dc5f6bb3b9f",
+            "Assets\\DMYamaPlayerPersistentMyList\\Samples\\MyListDemo.unity": "91da1f0d78dc9a54387db23ac926669d",
+            "Assets\\DMYamaPlayerPersistentMyList\\Documentation\\README.md": "b6e31298af062744da7ea02967e1fdda",
+            "Assets\\DMYamaPlayerPersistentMyList\\Icons\\dm-folder-star.png": "e410d3ff3fc97bd40a524ff9bc0de7e0",
+            "Assets\\DMYamaPlayerPersistentMyList\\Icons\\dm-folder-plus.png": "d655e19edebde884e95b900dafb67461",
+            "Assets\\DMYamaPlayerPersistentMyList\\Icons\\dm-file-plus.png": "75a7d1ff0c81b2c4ba50c5e47dc11599",
+            "Assets\\DMYamaPlayerPersistentMyList\\Icons\\dm-chevron-right.png": "a10dbdd090141e64dbf7ead10def9a59"
+          },
+          "url": "https://displaymonitor.github.io/dm-vpm/packages/com.dismoni.yamaplayer.localplaylist/com.dismoni.yamaplayer.localplaylist-1.1.0-beta.1.zip",
+          "zipSHA256": "2f8529b6d146153d85506486ef2582ad05e7234a74e6c48d44dc2335c5901f08"
         }
       }
     }
