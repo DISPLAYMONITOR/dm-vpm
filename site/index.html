@@ -28,8 +28,10 @@ If the button does nothing, add the URL above as a package listing (repository) 
 
 <h2>パッケージ / Packages</h2>
 <ul>
-<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 — YamaPlayer 1.5.18 用のアドオン（無料・プレリリース）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加し、「プレリリースを表示」を有効にしてください。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
-Add-on for YamaPlayer 1.5.18 (free, pre-release). Also add the YamaPlayer listing above and enable "Show Pre-Release Packages". Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.</li>
+<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 —YamaPlayer 1.5.18 用のアドオン（無料・プレリリース）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加し、「プレリリースを表示」を有効にしてください。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
+Add-on for YamaPlayer 1.5.18 (free, pre-release). Also add the YamaPlayer listing above and enable "Show Pre-Release Packages". Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
+1.1.0-beta.2：YouTube プレイリストの取り込みは 1 回に最大 100 曲です。100 曲を超えるプレイリストは先頭の 100 曲までを取り込み、続きのページは取得しません。ローカルプレイリスト全体の上限は 150 曲です（題名が長いと、それより前に保存容量の上限に達することがあります）。<br>
+1.1.0-beta.2: one YouTube playlist import takes at most 100 tracks; for a longer playlist the first 100 are imported and the following pages are not fetched. All local playlists together hold at most 150 tracks (long titles can reach the storage limit earlier).</li>
 <li><code>com.dismoni.vpm.publictest</code> 0.0.1 / 0.0.2 — 配布の仕組みを試すための、中身の無いダミーのパッケージです（入れる必要はありません）。<br>
 Empty dummy package from the public test of the distribution setup; no need to install it.</li>
 </ul>
@@ -38,6 +40,8 @@ Empty dummy package from the public test of the distribution setup; no need to i
 <ul>
 <li>更新の前に、プロジェクトのバックアップを取ってください。VCC では、パッケージの取得に失敗すると、入っていた版が消えることがあります。ALCOM を推奨します。</li>
 <li>Back up your project before updating. In VCC a failed download can remove the installed version; ALCOM is recommended.</li>
+<li>Unity を開いたまま VCC・ALCOM で更新したときは、Unity に戻って読み込み（Refresh、Ctrl+R）が行われるまで、前の版のコードのまま動きます。Unity を閉じてから更新するか、更新の後に Refresh または Unity の起動し直しをしてください。</li>
+<li>If you update with VCC / ALCOM while Unity is open, the previous version's code keeps running until Unity refreshes (return to Unity, or Ctrl+R). Close Unity before updating, or refresh / restart Unity after the update.</li>
 <li>公開済みの版の ZIP は差し替えません。修正は新しい版で出します。 / A published version is never replaced; fixes come as new versions.</li>
 </ul>
 </main>

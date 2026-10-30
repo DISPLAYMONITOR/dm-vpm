@@ -14,5 +14,9 @@
   "com.dismoni.yamaplayer.localplaylist@1.1.0-beta.1": {
     "sha256": "2f8529b6d146153d85506486ef2582ad05e7234a74e6c48d44dc2335c5901f08",
     "listed": true
+  },
+  "com.dismoni.yamaplayer.localplaylist@1.1.0-beta.2": {
+    "sha256": "2d246daabbb80b49a1870ed0845fc0e8cacb685c4aaf4f82f9ac540dd5b77d85",
+    "listed": true
   }
 }
