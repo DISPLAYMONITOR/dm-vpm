@@ -9,6 +9,9 @@ Rules (any failure = STOP, nothing is published):
      "listed". No other file, no hidden file, no link.
   2. Every ZIP: package id is in allowed_package_ids, its SHA-256 equals the ledger, its package.json name and version
      equal the file name, only plain .json / .meta / .md entries, no absolute or ".." paths, under 1 MiB.
+     The only modified WebUnit Client that may be in a ZIP is the permitted one (PERMITTED_CLIENT: exact package,
+     first version, entry name and bytes; bundled with the YamachanWebUnit rights holder's permission as the owner
+     declared on 2026-10-30). Any other modified Client entry, name or bytes is a STOP.
   3. site/index.json equals what this tool builds from the ledger and the ZIPs (so the listing cannot point elsewhere):
      every version URL is inside base_url and every zipSHA256 equals the ledger.
   4. ledger.json is append-only: an id@version once recorded keeps its SHA-256 forever (it may only be unlisted).
@@ -32,9 +35,27 @@ FORBIDDEN = [re.compile(p, re.I) for p in (
     'wrld' + '_', 'usr' + '_',
     'dm-vpm' + '-private', 'vpm' + '.private', 'kit' + 'ai', 'mim' + 'ura', '@gm' + 'ail', r'c:\\' + 'users', 'drop' + 'box',
     'public' + ' room')]
-# Bytes of the DM Modified WebUnit Clients (v5.4 / v5.2). They must never be published (redistribution permission PENDING).
+# Bytes of the DM Modified WebUnit Clients (v5.4 / v5.2). Never published, except the permitted entry below.
 FORBIDDEN_SHA256 = {'d13b2ce1976d63c035937151cb0ecec71fc3ed9fab9ce820b81abf8828fd910a',
                     '8dd8b6ded358e88095409e0a0e45eb5538301da18c1ea9b698b5c9a1660785df'}
+# The DM Modified WebUnit v5.4 Client, bundled from com.dismoni.yamaplayer.localplaylist 1.1.0-beta.3 on with the
+# permission of the YamachanWebUnit rights holder (owner's declaration, 2026-10-30). v5.2 stays forbidden.
+PERMITTED_CLIENT = {'package': 'com.dismoni.yamaplayer.localplaylist', 'from': (1, 1, 0, 'beta', 3),
+                    'entry': 'WebUnit/Client.dm-v5.4.cs.txt', 'meta': 'WebUnit/Client.dm-v5.4.cs.txt.meta',
+                    'sha256': 'd13b2ce1976d63c035937151cb0ecec71fc3ed9fab9ce820b81abf8828fd910a'}
+
+
+def version_key(version):
+    m = re.fullmatch(r'(\d+)\.(\d+)\.(\d+)(?:-([a-z]+)\.(\d+))?', version)
+    if not m: return None
+    return (int(m.group(1)), int(m.group(2)), int(m.group(3)), m.group(4) or '~', int(m.group(5) or 0))
+
+
+def permitted(pkg, version, name, digest=None):
+    k = version_key(version)
+    if pkg != PERMITTED_CLIENT['package'] or k is None or k[:3] != PERMITTED_CLIENT['from'][:3] or k < PERMITTED_CLIENT['from']: return False
+    if name == PERMITTED_CLIENT['meta']: return digest is None
+    return name == PERMITTED_CLIENT['entry'] and (digest is None or digest == PERMITTED_CLIENT['sha256'])
 SCAN_SKIP = {'tools/check_site.py'}           # holds the patterns themselves (split, so it does not match anyway)
 
 
@@ -53,9 +74,12 @@ def zip_problems(rel, data, pkg, version, types=('.json', '.meta', '.md')):
         n = info.filename
         if n.startswith('/') or '\\' in n or '..' in n.split('/') or ':' in n: out.append('%s: bad entry path %r' % (rel, n))
         if (info.external_attr >> 16) & 0o170000 == 0o120000: out.append('%s: link entry %r' % (rel, n))
-        if not n.endswith('/') and os.path.splitext(n)[1] not in types: out.append('%s: entry type not allowed %r' % (rel, n))
-        if n.startswith('WebUnit/Client.dm'): out.append('%s: modified WebUnit Client entry %r' % (rel, n))
-        if not n.endswith('/') and hashlib.sha256(z.read(n)).hexdigest() in FORBIDDEN_SHA256: out.append('%s: entry %r has the bytes of a modified WebUnit Client' % (rel, n))
+        digest = None if n.endswith('/') else hashlib.sha256(z.read(n)).hexdigest()
+        allowed = permitted(pkg, version, n)
+        if not n.endswith('/') and os.path.splitext(n)[1] not in types and not (allowed and n == PERMITTED_CLIENT['entry']): out.append('%s: entry type not allowed %r' % (rel, n))
+        if n.startswith('WebUnit/Client.dm') and not allowed: out.append('%s: modified WebUnit Client entry %r' % (rel, n))
+        if allowed and n == PERMITTED_CLIENT['entry'] and digest != PERMITTED_CLIENT['sha256']: out.append('%s: %r is not the permitted v5.4 Client (sha256 %s)' % (rel, n, digest))
+        if digest in FORBIDDEN_SHA256 and not (allowed and n == PERMITTED_CLIENT['entry']): out.append('%s: entry %r has the bytes of a modified WebUnit Client' % (rel, n))
         if not n.endswith('/'):
             scan('%s!%s' % (rel, n), z.read(n).decode('utf-8', 'replace'))
     if 'package.json' not in names: return out + ['%s: no package.json' % rel]

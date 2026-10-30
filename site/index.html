@@ -28,16 +28,28 @@ If the button does nothing, add the URL above as a package listing (repository) 
 
 <h2>パッケージ / Packages</h2>
 <ul>
-<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 —YamaPlayer 1.5.18 用のアドオン（無料・プレリリース）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加し、「プレリリースを表示」を有効にしてください。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
-Add-on for YamaPlayer 1.5.18 (free, pre-release). Also add the YamaPlayer listing above and enable "Show Pre-Release Packages". Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
-1.1.0-beta.2 を使う前に、下の「1.1.0-beta.2 の既知の制限」を読んでください。 / Before using 1.1.0-beta.2, read "Known limits of 1.1.0-beta.2" below.</li>
+<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 / 1.1.0-beta.3 —YamaPlayer 用のアドオン（無料・プレリリース。1.1.0-beta.3 は YamaPlayer 1.5.18・1.5.19、それより前の版は 1.5.18）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加し、「プレリリースを表示」を有効にしてください。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
+Add-on for YamaPlayer (free, pre-release; 1.1.0-beta.3: YamaPlayer 1.5.18 / 1.5.19, earlier versions: 1.5.18). Also add the YamaPlayer listing above and enable "Show Pre-Release Packages". Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
+1.1.0-beta.2・beta.3 を使う前に、下の「1.1.0-beta.3 について」と「既知の制限」を読んでください。 / Before using 1.1.0-beta.2 or beta.3, read "About 1.1.0-beta.3" and "Known limits" below.</li>
 <li><code>com.dismoni.vpm.publictest</code> 0.0.1 / 0.0.2 — 配布の仕組みを試すための、中身の無いダミーのパッケージです（入れる必要はありません）。<br>
 Empty dummy package from the public test of the distribution setup; no need to install it.</li>
 </ul>
 
-<h2>1.1.0-beta.2 の既知の制限 / Known limits of 1.1.0-beta.2</h2>
-<p class="note">1.1.0-beta.2 はプレリリース（ベータ版）です。すべての環境での動作確認は終わっていません。<br>
-1.1.0-beta.2 is a pre-release (beta). It has not been tested in every environment.</p>
+<h2>1.1.0-beta.3 について / About 1.1.0-beta.3</h2>
+<ul>
+<li>YamaPlayer 1.5.18 と 1.5.19 で使えます（1.5.20 以降は、確認するまで対象にしません）。1.5.19 は、エディターでの確認だけで、実際の VRChat での確認はまだしていません。<br>
+Works with YamaPlayer 1.5.18 and 1.5.19 (1.5.20 or later is not covered until it is checked). 1.5.19 was checked in the editor only, not yet in real VRChat.</li>
+<li>改変版の WebUnit Client「DM Modified WebUnit v5.4 (PC)」を同梱しています（YamachanWebUnit の権利者の許可による。パッケージ内の NOTICE.md）。利用者が PersistentMyList の Inspector などで選んだときだけ入れ替えます。公式の Client は退避され、「Restore Official WebUnit」で戻せます。何も選ばなければ公式のまま使います。<br>
+The modified WebUnit Client "DM Modified WebUnit v5.4 (PC)" is bundled (with the permission of the YamachanWebUnit rights holder; see NOTICE.md in the package). It replaces the Client only when the user chooses it (for example in the PersistentMyList Inspector). The official Client is backed up and can be restored with "Restore Official WebUnit". Nothing changes unless you choose it.</li>
+<li>VCC・ALCOM で YamachanWebUnit を入れ直す・更新すると、改変版は公式の Client に戻ります（このアドオンが Inspector とコンソールで知らせます）。そのときは、もう一度 Install を選んでください。このアドオン自体の更新では、入れ替えた Client は変わりません。<br>
+Reinstalling or updating YamachanWebUnit with VCC / ALCOM puts the official Client back (the add-on says so in the Inspector and the console); choose Install again. Updating this add-on keeps the chosen Client.</li>
+<li>実行時のコード・保存データの形式・上限は 1.1.0-beta.2 と同じです。下の既知の制限は 1.1.0-beta.3 にも当てはまります。<br>
+The runtime code, save format and limits are the same as 1.1.0-beta.2; the known limits below also apply to 1.1.0-beta.3.</li>
+</ul>
+
+<h2>1.1.0-beta.2・beta.3 の既知の制限 / Known limits of 1.1.0-beta.2 and beta.3</h2>
+<p class="note">1.1.0-beta.2・beta.3 はプレリリース（ベータ版）です。すべての環境での動作確認は終わっていません。<br>
+1.1.0-beta.2 and beta.3 are pre-releases (beta). They have not been tested in every environment.</p>
 <ul>
 <li>YouTube プレイリストの取り込みは、1 回に最大 100 曲です。100 曲を超えるプレイリストでは、取得できた先頭の 100 曲だけを取り込みます。続きのページは自動では取得しません。ローカルプレイリスト全体の上限は 150 曲です（題名が長いと、それより前に保存容量の上限に達することがあります）。<br>
 One YouTube playlist import takes at most 100 tracks. For a longer playlist, only the first 100 tracks that were received are imported; the following pages are not fetched automatically. All local playlists together hold at most 150 tracks (long titles can reach the storage limit earlier).</li>
