@@ -28,11 +28,23 @@ If the button does nothing, add the URL above as a package listing (repository) 
 
 <h2>パッケージ / Packages</h2>
 <ul>
-<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 / 1.1.0-beta.3 / <strong>1.1.0</strong> —YamaPlayer 用のアドオン（無料。正式版 1.1.0 と beta.3 は YamaPlayer 1.5.18・1.5.19、それより前の版は 1.5.18）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加してください。正式版 1.1.0 は「プレリリースを表示」がオフでも利用できます。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
-Add-on for YamaPlayer (free; stable 1.1.0 and beta.3: YamaPlayer 1.5.18 / 1.5.19, earlier versions: 1.5.18). Also add the YamaPlayer listing above ; stable 1.1.0 is available with "Show Pre-Release Packages" off. Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
+<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 / 1.1.0-beta.3 / 1.1.0 / <strong>1.1.1</strong> —YamaPlayer 用のアドオン（無料。正式版 1.1.1・1.1.0 と beta.3 は YamaPlayer 1.5.18・1.5.19、それより前の版は 1.5.18）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加してください。正式版は「プレリリースを表示」がオフでも利用できます。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
+Add-on for YamaPlayer (free; stable 1.1.1 / 1.1.0 and beta.3: YamaPlayer 1.5.18 / 1.5.19, earlier versions: 1.5.18). Also add the YamaPlayer listing above ; the stable versions are available with "Show Pre-Release Packages" off. Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
 1.1.0-beta.2・beta.3 を使う前に、下の「1.1.0-beta.3 について」と「既知の制限」を読んでください。 / Before using 1.1.0-beta.2 or beta.3, read "About 1.1.0-beta.3" and "Known limits" below.</li>
 <li><code>com.dismoni.vpm.publictest</code> 0.0.1 / 0.0.2 — 配布の仕組みを試すための、中身の無いダミーのパッケージです（入れる必要はありません）。<br>
 Empty dummy package from the public test of the distribution setup; no need to install it.</li>
+</ul>
+
+<h2>正式版 1.1.1 / Stable 1.1.1</h2>
+<ul>
+<li>同梱の改変版 WebUnit Client を「DM Modified WebUnit v5.5 (PC)」に置き換えました（YamachanWebUnit の権利者の許可による。パッケージ内の NOTICE.md）。この Client は非公式の改変版で、YamachanWebUnit の作者が動作を保証するものではありません。v5.4 は同梱しません。v5.4 を入れている場合、Inspector に UPDATE AVAILABLE と表示され、Update で v5.5 に更新できます。更新するまでは v5.4 のまま使えます。<br>
+The bundled modified WebUnit Client is now "DM Modified WebUnit v5.5 (PC)" (with the permission of the YamachanWebUnit rights holder; see NOTICE.md in the package). It is an unofficial modified version; the YamachanWebUnit author does not guarantee its operation. v5.4 is no longer bundled. If v5.4 is installed, the Inspector shows UPDATE AVAILABLE and Update moves it to v5.5; until then v5.4 keeps working.</li>
+<li>ローカルプレイリストの連続再生中に WebUnit で再生する曲が失敗したとき、そのクライアントだけでもう一度読み込む自動の再試行を追加しました（PC のみ、最大 3 回。曲を飛ばさず、共有の URL・同期は変えません）。自動の再試行は v5.5 を入れたときだけ動きます（公式の Client や v5.4 では動かず、「もう一度再生」は従来どおり使えます）。<br>
+Automatic retry is added: while a local playlist plays continuously, a track played through WebUnit that fails is loaded again on that client only (PC only, up to 3 times; no track is skipped and the shared URL / sync is unchanged). It works only with v5.5 installed (not with the official Client or v5.4, where "Play again" works as before).</li>
+<li>曲の行のボタンの並びを YamaPlayer の順に合わせました。保存データの形式は 1.1.0 と同じです。<br>
+The buttons of a track row follow YamaPlayer's order. The save format is the same as 1.1.0.</li>
+<li>既知の問題（未解決）：WebUnit を通る曲が、動画 ID の欠け（または違い）で再生されないことがあります（PLAYBACK-01）。自動の再試行と「もう一度再生」は回復の手段で、原因は直っていません。自動の再試行と「もう一度再生」は、公開のワールドではまだ確認していません。下の既知の制限・未検証項目（VMHALT-01・BUILD_UNCONFIRMED を含む）は引き続き当てはまります。<br>
+Known issue (not resolved): a track played through WebUnit can fail to play because its video ID is missing (or wrong) (PLAYBACK-01). Automatic retry and "Play again" are ways to recover; the cause is not fixed. Automatic retry and "Play again" are not yet confirmed in a published world. The known limits and unverified items below (including VMHALT-01 and BUILD_UNCONFIRMED) still apply.</li>
 </ul>
 
 <h2>正式版 1.1.0 / Stable 1.1.0</h2>
