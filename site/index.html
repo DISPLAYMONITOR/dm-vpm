@@ -28,11 +28,21 @@ If the button does nothing, add the URL above as a package listing (repository) 
 
 <h2>パッケージ / Packages</h2>
 <ul>
-<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 / 1.1.0-beta.3 / 1.1.0 / <strong>1.1.1</strong> —YamaPlayer 用のアドオン（無料。正式版 1.1.1・1.1.0 と beta.3 は YamaPlayer 1.5.18・1.5.19、それより前の版は 1.5.18）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加してください。正式版は「プレリリースを表示」がオフでも利用できます。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
-Add-on for YamaPlayer (free; stable 1.1.1 / 1.1.0 and beta.3: YamaPlayer 1.5.18 / 1.5.19, earlier versions: 1.5.18). Also add the YamaPlayer listing above ; the stable versions are available with "Show Pre-Release Packages" off. Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
+<li><strong>DM YamaPlayer Local Playlist</strong>（<code>com.dismoni.yamaplayer.localplaylist</code>）1.0.1-rc.11 / 1.1.0-beta.1 / 1.1.0-beta.2 / 1.1.0-beta.3 / 1.1.0 / 1.1.1 / <strong>1.1.2</strong> —YamaPlayer 用のアドオン（無料。正式版 1.1.2・1.1.1・1.1.0 と beta.3 は YamaPlayer 1.5.18・1.5.19、それより前の版は 1.5.18）。YamaPlayer のリポジトリ <code>https://vpm.kwxxw.net/index.json</code> も追加してください。正式版は「プレリリースを表示」がオフでも利用できます。利用規約はパッケージ内の LICENSE.md（日本語が正本）と LICENSE.en.md です。<br>
+Add-on for YamaPlayer (free; stable 1.1.2 / 1.1.1 / 1.1.0 and beta.3: YamaPlayer 1.5.18 / 1.5.19, earlier versions: 1.5.18). Also add the YamaPlayer listing above ; the stable versions are available with "Show Pre-Release Packages" off. Terms: LICENSE.md (Japanese, authoritative) and LICENSE.en.md in the package.<br>
 1.1.0-beta.2・beta.3 を使う前に、下の「1.1.0-beta.3 について」と「既知の制限」を読んでください。 / Before using 1.1.0-beta.2 or beta.3, read "About 1.1.0-beta.3" and "Known limits" below.</li>
 <li><code>com.dismoni.vpm.publictest</code> 0.0.1 / 0.0.2 — 配布の仕組みを試すための、中身の無いダミーのパッケージです（入れる必要はありません）。<br>
 Empty dummy package from the public test of the distribution setup; no need to install it.</li>
+</ul>
+
+<h2>正式版 1.1.2 / Stable 1.1.2</h2>
+<ul>
+<li>同梱の改変版 WebUnit Client を「DM Modified WebUnit v5.6 (PC)」に置き換えました（YamachanWebUnit の権利者の許可による。パッケージ内の NOTICE.md）。この Client は非公式の改変版で、YamachanWebUnit の作者が動作を保証するものではありません。v5.5 は同梱しません。v5.5・v5.4 を入れている場合、Inspector に UPDATE AVAILABLE と表示され、Update で v5.6 に更新できます。v5.6 は、送信が止まったときや新旧の文字が混ざりそうなときに送信を待ち、文字の間が長く空いたら先頭から送り直します。<br>
+The bundled modified WebUnit Client is now "DM Modified WebUnit v5.6 (PC)" (with the permission of the YamachanWebUnit rights holder; see NOTICE.md in the package). It is an unofficial modified version; the YamachanWebUnit author does not guarantee its operation. v5.5 is no longer bundled. If v5.5 or v5.4 is installed, the Inspector shows UPDATE AVAILABLE and Update moves it to v5.6. v5.6 waits instead of sending when a transfer stalls or old and new characters could mix, and resends from the start after a long gap.</li>
+<li>開いたプレイリストの最上段を 6 ボタン（上へ・下へ・削除・名前変更・全部を予約・全部を再生）にしました。後から入った人の手元でプレイリストの番号がずれる問題を直しました。保存データの形式は 1.1.1 と同じで、1.1.1 で保存したプレイリストをそのまま読み込めます。<br>
+The top row of an open playlist has six buttons (up, down, delete, rename, queue all, play all). A late joiner's playlist numbers no longer shift. The save format is the same as 1.1.1; playlists saved with 1.1.1 load as they are.</li>
+<li>既知の問題（未解決）：WebUnit を通る曲が、動画 ID の欠けで再生されないことがあります（PLAYBACK-01）。自動の再試行と「もう一度再生」は回復の手段で、原因は直っていません。Quest 実機・複数人の途中参加・終了の直前の保存（VMHALT-01）は未確認です。下の既知の制限・未検証項目は引き続き当てはまります。<br>
+Known issue (not resolved): a track played through WebUnit can fail to play because its video ID is missing (PLAYBACK-01). Automatic retry and "Play again" are ways to recover; the cause is not fixed. Quest devices, late joiners with several people and saving right before leaving (VMHALT-01) are not verified. The known limits and unverified items below still apply.</li>
 </ul>
 
 <h2>正式版 1.1.1 / Stable 1.1.1</h2>

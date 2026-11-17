@@ -11,7 +11,7 @@ Rules (any failure = STOP, nothing is published):
      equal the file name, only plain .json / .meta / .md entries, no absolute or ".." paths, under 1 MiB.
      The only modified WebUnit Clients that may be in a ZIP are the permitted ones (PERMITTED_CLIENTS: exact package,
      version line and first version, entry name and bytes; bundled with the YamachanWebUnit rights holder's permission
-     as the owner declared: v5.4 on 2026-10-30, v5.5 on 2026-11-04). Any other modified Client entry, name or bytes is
+     as the owner declared: v5.4 on 2026-10-30, v5.5 on 2026-11-04, v5.6 under the same 2026-11-04 declaration). Any other modified Client entry, name or bytes is
      a STOP.
   3. site/index.json equals what this tool builds from the ledger and the ZIPs (so the listing cannot point elsewhere):
      every version URL is inside base_url and every zipSHA256 equals the ledger.
@@ -36,17 +36,20 @@ FORBIDDEN = [re.compile(p, re.I) for p in (
     'wrld' + '_', 'usr' + '_',
     'dm-vpm' + '-private', 'vpm' + '.private', 'kit' + 'ai', 'mim' + 'ura', '@gm' + 'ail', r'c:\\' + 'users', 'drop' + 'box',
     'public' + ' room')]
-# Bytes of the DM Modified WebUnit Clients (v5.4 / v5.2 / v5.5 and its 1.1.1-beta.1 form). Never published, except a
+# Bytes of the DM Modified WebUnit Clients (v5.4 / v5.2 / v5.5 and its 1.1.1-beta.1 form / v5.6). Never published, except a
 # permitted entry below.
 FORBIDDEN_SHA256 = {'d13b2ce1976d63c035937151cb0ecec71fc3ed9fab9ce820b81abf8828fd910a',
                     '8dd8b6ded358e88095409e0a0e45eb5538301da18c1ea9b698b5c9a1660785df',
                     'ab104625c6c40424e844ae4b28b3e9b8633b784f3d2bbc8f31d242a58fcd4f84',
-                    'a04258caf5b097fac2e821d4c4845237dbe57f1a419f226383d688a0c926e3da'}
+                    'a04258caf5b097fac2e821d4c4845237dbe57f1a419f226383d688a0c926e3da',
+                    '7cd1ed1426485c9f4bae4f1dc5125bfb3a36066750abcf4db83bae518b228d51'}
 # The DM Modified WebUnit Clients bundled with the permission of the YamachanWebUnit rights holder. Each rule holds for
 # one version line ('from'[:3]) from its first version on. v5.2 and the beta.1 form of v5.5 stay forbidden.
 #   v5.4: 1.1.0-beta.3 and later 1.1.0 versions (owner's declaration, 2026-10-30).
 #   v5.5: 1.1.1 and later 1.1.1 versions (owner's declaration, 2026-11-04, that the permission covers v5.5 and later
 #         modified versions, with the instruction to ship v5.5 in place of v5.4).
+#   v5.6: 1.1.2 and later 1.1.2 versions (covered by the same 2026-11-04 declaration; the owner approved shipping
+#         1.1.2 with v5.6 on 2026-11-17).
 PERMITTED_CLIENTS = [
     {'label': 'v5.4', 'package': 'com.dismoni.yamaplayer.localplaylist', 'from': (1, 1, 0, 'beta', 3),
      'entry': 'WebUnit/Client.dm-v5.4.cs.txt', 'meta': 'WebUnit/Client.dm-v5.4.cs.txt.meta',
@@ -54,6 +57,9 @@ PERMITTED_CLIENTS = [
     {'label': 'v5.5', 'package': 'com.dismoni.yamaplayer.localplaylist', 'from': (1, 1, 1, '~', 0),
      'entry': 'WebUnit/Client.dm-v5.5.cs.txt', 'meta': 'WebUnit/Client.dm-v5.5.cs.txt.meta',
      'sha256': 'ab104625c6c40424e844ae4b28b3e9b8633b784f3d2bbc8f31d242a58fcd4f84'},
+    {'label': 'v5.6', 'package': 'com.dismoni.yamaplayer.localplaylist', 'from': (1, 1, 2, '~', 0),
+     'entry': 'WebUnit/Client.dm-v5.6.cs.txt', 'meta': 'WebUnit/Client.dm-v5.6.cs.txt.meta',
+     'sha256': '7cd1ed1426485c9f4bae4f1dc5125bfb3a36066750abcf4db83bae518b228d51'},
 ]
 
 
